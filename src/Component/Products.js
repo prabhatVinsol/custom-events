@@ -3,7 +3,7 @@ import React from 'react';
 import Product from './Product';
 
 function Products(props) {
-  const { productList, addToCart } = props;
+  const { productList } = props;
   return (
     <div className="ProductGrid">
       {
@@ -11,7 +11,6 @@ function Products(props) {
           <Product
             key={product.image}
             product={product}
-            addToCart={addToCart}
           />
         ))
       }

@@ -3,7 +3,7 @@ import React from 'react';
 import Product from './Product';
 
 function Cart(props) {
-  const { cartList, removeFromCart } = props;
+  const { cartList } = props;
   const getTotal = () => {
     let total = 0;
     cartList.forEach((product) => {
@@ -24,7 +24,6 @@ function Cart(props) {
           <Product
             key={product.image}
             product={product}
-            addToCart={removeFromCart}
             remove
           />
         ))}
