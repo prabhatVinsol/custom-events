@@ -6,7 +6,7 @@ import gold from '../ImageResources/gold.jpg';
 import green from '../ImageResources/green.jpeg';
 
 function Product(props) {
-  const { product, addToCart } = props;
+  const { product, addToCart, remove } = props;
   const getImage = () => {
     if (product.image === 'silver') {
       return silver;
@@ -25,11 +25,17 @@ function Product(props) {
       <div className="ProductDetail">
         <p>{product.name}</p>
         <p>
+          $
           {product.price}
           {' '}
+          (
           {product.storage}
+          )
         </p>
-        <button type="button" onClick={() => addToCart(product)}>ADD TO CART</button>
+        <div className={remove ? 'Remove' : ''}>
+          {remove ? <button type="button" onClick={() => addToCart(product)}>REMOVE</button>
+            : <button type="button" onClick={() => addToCart(product)}>ADD TO CART</button>}
+        </div>
       </div>
     </div>
   );

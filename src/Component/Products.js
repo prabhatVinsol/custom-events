@@ -7,7 +7,13 @@ function Products(props) {
   return (
     <div className="ProductGrid">
       {
-        productList.map((product) => <Product product={product} addToCart={addToCart} />)
+        productList.map((product) => (
+          <Product
+            key={product.image}
+            product={product}
+            addToCart={addToCart}
+          />
+        ))
       }
 
     </div>

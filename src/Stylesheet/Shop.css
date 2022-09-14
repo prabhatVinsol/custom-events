@@ -4,15 +4,14 @@
   padding: 10px;
 }
 .ProductContainer {
-  width: 75%;
+  width: 73%;
   height:600px;
-  background-color: bisque;
   float: left;
+  padding-right: 5px;
 }
 .CartContainer {
   width: 25%;
   height: 600px;
-  background-color: aquamarine;
   float: right;
   
 }
@@ -25,7 +24,9 @@
   display: grid;
   grid-template-columns: 0.4fr 0.6fr;
   height: 295px;
-  background-color: rgb(118, 91, 42);
+  background-color: rgb(120, 119, 119);
+  border: 3px solid;
+  border-color: cadetblue;
 }
 .ProductImage{
   width:100%;
@@ -37,4 +38,31 @@
   text-align: left;
   padding: 20px;
   color: white;
+}
+.Cart{
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  color: lightgray;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 530px;
+  overflow-y: scroll;
+  border: 3px solid;
+  border-color: cadetblue;
+}
+.Order{
+  height: 45px;
+  padding: 10px;
+  border: 2px solid;
+  margin-top: 5px;
+  border-color: cadetblue;
+}
+.OrderButton{
+  width: 90%;
+  margin-top: 10px;
+  height: 30px;
+}
+.Remove{
+  color: rgb(233, 100, 100);
 }
