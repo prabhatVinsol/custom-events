@@ -19,7 +19,7 @@ function Cart(props) {
           <Product
             key={product.id}
             product={product}
-            remove
+            renderForCart
           />
         ))}
       </div>
