@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Stylesheet/Shop.css';
 import Products from './Products';
-import { products } from '../DataModel/ProductData';
+import { ProductsData } from '../DataModel/ProductData';
 import Cart from './Cart';
 import { subscribe, unsubscribe } from './Event';
 
@@ -13,18 +13,18 @@ function Shop() {
       setCart([...cartItems, data.detail]);
     });
     subscribe('removeFromCart', (data) => {
-      setCart(cartItems.filter((cartItem) => cartItem.image !== data.detail.image));
+      setCart(cartItems.filter((cartItem) => cartItem.id !== data.detail.id));
     });
 
     return () => {
       unsubscribe('addToCart');
       unsubscribe('removeFromCart');
     };
-  });
+  }, [cartItems]);
   return (
     <div className="Shop">
       <div className="ProductContainer">
-        <Products productList={products} />
+        <Products productList={ProductsData} />
       </div>
       <div className="CartContainer">
         <Cart cartList={cartItems} />

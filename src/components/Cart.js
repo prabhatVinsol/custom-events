@@ -4,13 +4,8 @@ import Product from './Product';
 
 function Cart(props) {
   const { cartList } = props;
-  const getTotal = () => {
-    let total = 0;
-    cartList.forEach((product) => {
-      total += product.price;
-    });
-    return total;
-  };
+  const getTotal = () => cartList.reduce((accumulator, currentValue) => accumulator
+    + currentValue.price, 0);
   return (
     <div>
       <div className="Cart">
@@ -22,7 +17,7 @@ function Cart(props) {
         </h1>
         {cartList.map((product) => (
           <Product
-            key={product.image}
+            key={product.id}
             product={product}
             remove
           />

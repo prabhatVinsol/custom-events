@@ -9,14 +9,16 @@ import { publish } from './Event';
 function Product(props) {
   const { product, remove } = props;
   const getImage = () => {
-    if (product.image === 'silver') {
+    switch (product.image) {
+    case 'silver':
       return silver;
-    } if (product.image === 'grey') {
+    case 'grey':
       return grey;
-    } if (product.image === 'gold') {
+    case 'gold':
       return gold;
+    default:
+      return green;
     }
-    return green;
   };
   return (
     <div className="Product">

@@ -9,7 +9,7 @@ function Products(props) {
       {
         productList.map((product) => (
           <Product
-            key={product.image}
+            key={product.id}
             product={product}
           />
         ))
