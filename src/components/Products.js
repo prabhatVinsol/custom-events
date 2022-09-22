@@ -11,6 +11,7 @@ function Products(props) {
           <Product
             key={product.id}
             product={product}
+            renderConditionForButton="Products"
           />
         ))
       }

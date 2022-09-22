@@ -2,6 +2,7 @@
   width: auto;
   height: auto;
   padding: 10px;
+  overflow-y: scroll;
 }
 .ProductContainer {
   width: 73%;
@@ -14,6 +15,16 @@
   height: 600px;
   float: right;
   
+}
+.order-summary-container {
+  width: 73%;
+  height:600px;
+  float: left;
+  padding-right: 5px;
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  color: lightgray;
 }
 .ProductGrid{
   display: grid;

@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { publish } from './Event';
 import Product from './Product';
 
 function Cart(props) {
   const { cartList } = props;
   const getTotal = () => cartList.reduce((accumulator, currentValue) => accumulator
     + currentValue.price, 0);
+
   return (
     <div>
       <div className="Cart">
@@ -19,12 +21,12 @@ function Cart(props) {
           <Product
             key={product.id}
             product={product}
-            renderForCart
+            renderConditionForButton="Cart"
           />
         ))}
       </div>
       <div className="Order">
-        <button type="button" className="OrderButton">ORDER</button>
+        <button type="button" className="OrderButton" onClick={() => publish('orderCartItems')}>ORDER</button>
       </div>
     </div>
   );

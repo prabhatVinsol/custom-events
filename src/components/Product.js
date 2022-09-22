@@ -7,7 +7,7 @@ import green from '../ImageResources/green.jpeg';
 import { publish } from './Event';
 
 function Product(props) {
-  const { product, renderForCart } = props;
+  const { product, renderConditionForButton } = props;
   const getImage = () => {
     switch (product.image) {
     case 'silver':
@@ -18,6 +18,25 @@ function Product(props) {
       return gold;
     default:
       return green;
+    }
+  };
+
+  const productAddRemoveButton = () => {
+    switch (renderConditionForButton) {
+    case 'Products':
+      return (
+        <div>
+          <button type="button" onClick={() => publish('addToCart', product)}>ADD TO CART</button>
+        </div>
+      );
+    case 'Cart':
+      return (
+        <div className="Remove">
+          <button type="button" onClick={() => publish('removeFromCart', product)}>REMOVE</button>
+        </div>
+      );
+    default:
+      return null;
     }
   };
   return (
@@ -35,10 +54,7 @@ function Product(props) {
           {product.storage}
           )
         </p>
-        <div className={renderForCart ? 'Remove' : ''}>
-          {renderForCart ? <button type="button" onClick={() => publish('removeFromCart', product)}>REMOVE</button>
-            : <button type="button" onClick={() => publish('addToCart', product)}>ADD TO CART</button>}
-        </div>
+        {productAddRemoveButton()}
       </div>
     </div>
   );

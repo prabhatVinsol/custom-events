@@ -5,11 +5,14 @@ import Products from './Products';
 import { ProductsData } from '../DataModel/ProductData';
 import Cart from './Cart';
 import { subscribe, unsubscribe } from './Event';
+import Product from './Product';
 
 function Shop() {
   const [cartItems, setCart] = useState([]);
+  const [orderedItems, setOrderedItem] = useState([]);
   useEffect(() => {
     subscribe('addToCart', (data) => {
+      setOrderedItem([]);
       setCart([...cartItems, data.detail]);
     });
 
@@ -28,14 +31,58 @@ function Shop() {
     };
   }, [cartItems]);
 
+  useEffect(() => {
+    subscribe('orderCartItems', () => {
+      setOrderedItem(cartItems);
+      setCart([]);
+    });
+
+    return () => {
+      unsubscribe('orderCartItems');
+    };
+  }, [orderedItems, cartItems]);
+
+  const showOrderSummary = (orderedItems.length > 0)
+  && (
+    <div className="order-summary-container">
+      <h1>
+        Order Summary
+      </h1>
+      <h3>
+        Total items:
+        {' '}
+        {orderedItems.length}
+      </h3>
+      <h3>
+        Total value:
+        {'  $'}
+        {orderedItems.reduce(
+          (accumulator, currentVal) => accumulator + currentVal.price,
+          0,
+        )}
+      </h3>
+      <div className="ProductGrid">
+        { orderedItems.map((product) => (
+          <Product
+            key={product.id}
+            product={product}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="Shop">
-      <div className="ProductContainer">
-        <Products productList={ProductsData} />
+      <div>
+        <div className="ProductContainer">
+          <Products productList={ProductsData} />
+        </div>
+        <div className="CartContainer">
+          <Cart cartList={cartItems} />
+        </div>
       </div>
-      <div className="CartContainer">
-        <Cart cartList={cartItems} />
-      </div>
+      {showOrderSummary}
     </div>
   );
 }
