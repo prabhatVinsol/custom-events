@@ -12,15 +12,22 @@ function Shop() {
     subscribe('addToCart', (data) => {
       setCart([...cartItems, data.detail]);
     });
+
+    return () => {
+      unsubscribe('addToCart');
+    };
+  }, [cartItems]);
+
+  useEffect(() => {
     subscribe('removeFromCart', (data) => {
       setCart(cartItems.filter((cartItem) => cartItem.id !== data.detail.id));
     });
 
     return () => {
-      unsubscribe('addToCart');
       unsubscribe('removeFromCart');
     };
   }, [cartItems]);
+
   return (
     <div className="Shop">
       <div className="ProductContainer">
