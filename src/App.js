@@ -1,9 +1,10 @@
+import Shop from './components/Shop';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Custom events
+      <Shop />
     </div>
   );
 }

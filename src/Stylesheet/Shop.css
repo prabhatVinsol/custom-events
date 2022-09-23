@@ -1,0 +1,79 @@
+.Shop {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.ProductContainer {
+  width: 73%;
+  height:600px;
+  float: left;
+  padding-right: 5px;
+}
+.CartContainer {
+  width: 25%;
+  height: 600px;
+  float: right;
+  
+}
+.order-summary-container {
+  width: 73%;
+  height:600px;
+  float: left;
+  padding-right: 5px;
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  color: lightgray;
+}
+.ProductGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.Product{
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  height: 295px;
+  background-color: rgb(120, 119, 119);
+  border: 3px solid;
+  border-color: cadetblue;
+}
+.ProductImage{
+  width:100%;
+  height: 80%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.ProductDetail{
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+.Cart{
+  text-align: left;
+  font-size: medium;
+  font-weight: bold;
+  color: lightgray;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 530px;
+  overflow-y: scroll;
+  border: 3px solid;
+  border-color: cadetblue;
+}
+.Order{
+  height: 45px;
+  padding: 10px;
+  border: 2px solid;
+  margin-top: 5px;
+  border-color: cadetblue;
+}
+.OrderButton{
+  width: 90%;
+  margin-top: 10px;
+  height: 30px;
+}
+.Remove{
+  color: rgb(233, 100, 100);
+}
